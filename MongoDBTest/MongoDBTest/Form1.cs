@@ -25,6 +25,7 @@ namespace MongoDBTest
 
         void CargarDatos()
         {
+            //Read all
             var usuarios = _db.GetCollection<Usuarios>("usuarios").FindAll().ToList();
             dataGridView1.DataSource = usuarios;
         }
@@ -88,6 +89,7 @@ namespace MongoDBTest
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //Delete
             _id = ConseguirId();
             var usuario = _db.GetCollection<Usuarios>("usuarios");
             var query = Query.EQ("_id", ObjectId.Parse(_id));
